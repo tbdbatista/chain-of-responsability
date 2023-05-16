@@ -19,6 +19,7 @@ public class TextFileHandler implements Handler {
 
     @Override
     public void process(File file) {
+        System.out.println("\n--- Uploading '" + file.getFileName() + "." + file.getFileType() + "' file...");
         if(file.getFileType().equals("txt")) {
             System.out.println("Process and saving text file: " + file.getFileName() + "." + file.getFileType());
         } else if(handler != null){
@@ -26,7 +27,7 @@ public class TextFileHandler implements Handler {
                     + handler.getHandlerName());
             handler.process(file);
         }else{
-            System.out.println("File type not supported");
+            System.out.println("Error uploading file. Type extension not supported");
         }
     }
 
