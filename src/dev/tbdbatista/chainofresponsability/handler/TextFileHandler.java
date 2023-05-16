@@ -20,7 +20,7 @@ public class TextFileHandler implements Handler {
     @Override
     public void process(File file) {
         if(file.getFileType().equals("txt")) {
-            System.out.println("Process and saving text file: " + file.getFileName());
+            System.out.println("Process and saving text file: " + file.getFileName() + "." + file.getFileType());
         } else if(handler != null){
             System.out.println(handlerName + "cannot process " + file.getFileType() + " extension. Forwarding  request to "
                     + handler.getHandlerName());
