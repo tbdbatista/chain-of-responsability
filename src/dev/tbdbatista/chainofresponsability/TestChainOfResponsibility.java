@@ -5,12 +5,12 @@ import dev.tbdbatista.chainofresponsability.model.File;
 
 public class TestChainOfResponsibility {
     public static void main(String[] args) {
-        File file = null;
+        File file;
         Handler textHandler = new TextFileHandler("'txt' handler ");
         Handler docHandler = new DocumentFileHandler("'doc' handler ");
         Handler jpgHandler = new ImageFileHandler("'jpg' handler ");
-        Handler aviHandler = new AudioFileHandler("'mp3' handler ");
-        Handler mp3Handler = new VideoFileHandler("'avi' handler ");
+        Handler mp3Handler = new AudioFileHandler("'mp3' handler ");
+        Handler aviHandler = new VideoFileHandler("'avi' handler ");
 
         textHandler.setHandler(docHandler);
         docHandler.setHandler(jpgHandler);
@@ -20,6 +20,8 @@ public class TestChainOfResponsibility {
         file = new File("interview", "mp3");
         textHandler.process(file);
         file = new File("introduction", "avi");
+        textHandler.process(file);
+        file = new File("cover_letter", "pdf");
         textHandler.process(file);
         file = new File("resume", "doc");
         textHandler.process(file);
