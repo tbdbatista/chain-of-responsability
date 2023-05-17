@@ -20,13 +20,13 @@ public class TestChainOfResponsibility {
         jpgHandler.setHandler(aviHandler);
         aviHandler.setHandler(mp3Handler);
 
-        file = new File("Abc", "mp3", "C:");
+        file = new File("Abc", "mp3");
         textHandler.process(file);
-        file = new File("Abc", "avi", "C:");
+        file = new File("Abc", "avi");
         textHandler.process(file);
-        file = new File("Abc", "doc", "C:");
+        file = new File("Abc", "doc");
         textHandler.process(file);
-        file = new File("Abc", "jpg", "C:");
+        file = new File("Abc", "jpg");
         textHandler.process(file);
     }
 }
