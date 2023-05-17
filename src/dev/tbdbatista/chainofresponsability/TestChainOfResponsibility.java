@@ -12,8 +12,13 @@ public class TestChainOfResponsibility {
         Handler textHandler = new TextFileHandler("'txt' handler ");
         Handler docHandler = new DocumentFileHandler("'doc' handler ");
         Handler jpgHandler = new ImageFileHandler("'jpg' handler ");
+        Handler aviHandler = new ImageFileHandler("'mp3' handler ");
+        Handler mp3Handler = new ImageFileHandler("'avi' handler ");
+
         textHandler.setHandler(docHandler);
         docHandler.setHandler(jpgHandler);
+        jpgHandler.setHandler(aviHandler);
+        aviHandler.setHandler(mp3Handler);
 
         file = new File("Abc", "mp3", "C:");
         textHandler.process(file);
