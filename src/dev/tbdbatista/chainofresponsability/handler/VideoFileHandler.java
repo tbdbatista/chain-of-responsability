@@ -4,7 +4,7 @@ import dev.tbdbatista.chainofresponsability.model.File;
 
 public class VideoFileHandler implements Handler {
     private Handler handler;
-    private String handlerName;
+    private final String handlerName;
     public VideoFileHandler(String handlerName){
         this.handlerName = handlerName;
     }
@@ -14,7 +14,7 @@ public class VideoFileHandler implements Handler {
     }
     @Override
     public void process(File file) {
-        if(file.getFileType().equals("mpg")){
+        if(file.getFileType().equals("avi")){
             System.out.println("Process and saving video file: " + file.getFileName() + "." + file.getFileType());
         }else if(handler!=null){
             System.out.println(handlerName + "cannot process " + file.getFileType() + " extension. Forwarding  request to "
