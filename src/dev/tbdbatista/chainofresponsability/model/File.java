@@ -3,12 +3,10 @@ package dev.tbdbatista.chainofresponsability.model;
 public class File {
     private final String fileName;
     private final String fileType;
-    private final String filePath;
 
-    public File(String fileName, String fileType, String filePath) {
+    public File(String fileName, String fileType) {
         this.fileName = fileName;
         this.fileType = fileType;
-        this.filePath = filePath;
     }
 
     public String getFileName() {
@@ -17,9 +15,5 @@ public class File {
 
     public String getFileType() {
         return fileType;
-    }
-
-    public String getFilePath() {
-        return filePath;
     }
 }
