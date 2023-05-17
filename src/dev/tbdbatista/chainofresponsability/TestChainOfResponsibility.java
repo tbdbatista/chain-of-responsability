@@ -1,9 +1,6 @@
 package dev.tbdbatista.chainofresponsability;
 
-import dev.tbdbatista.chainofresponsability.handler.DocumentFileHandler;
-import dev.tbdbatista.chainofresponsability.handler.Handler;
-import dev.tbdbatista.chainofresponsability.handler.ImageFileHandler;
-import dev.tbdbatista.chainofresponsability.handler.TextFileHandler;
+import dev.tbdbatista.chainofresponsability.handler.*;
 import dev.tbdbatista.chainofresponsability.model.File;
 
 public class TestChainOfResponsibility {
@@ -12,21 +9,21 @@ public class TestChainOfResponsibility {
         Handler textHandler = new TextFileHandler("'txt' handler ");
         Handler docHandler = new DocumentFileHandler("'doc' handler ");
         Handler jpgHandler = new ImageFileHandler("'jpg' handler ");
-        Handler aviHandler = new ImageFileHandler("'mp3' handler ");
-        Handler mp3Handler = new ImageFileHandler("'avi' handler ");
+        Handler aviHandler = new AudioFileHandler("'mp3' handler ");
+        Handler mp3Handler = new VideoFileHandler("'avi' handler ");
 
         textHandler.setHandler(docHandler);
         docHandler.setHandler(jpgHandler);
         jpgHandler.setHandler(aviHandler);
         aviHandler.setHandler(mp3Handler);
 
-        file = new File("Abc", "mp3");
+        file = new File("interview", "mp3");
         textHandler.process(file);
-        file = new File("Abc", "avi");
+        file = new File("introduction", "avi");
         textHandler.process(file);
-        file = new File("Abc", "doc");
+        file = new File("resume", "doc");
         textHandler.process(file);
-        file = new File("Abc", "jpg");
+        file = new File("profile_picture", "jpg");
         textHandler.process(file);
     }
 }
